@@ -1,0 +1,16 @@
+#!/bin/bash
+#---------------------------------------------------------------
+# Script:  docker-load-mqcc
+# Written: Nov 2015
+# Author:  Daniel R Creager
+# Desc:    load a data container with the MQ Commons Code source
+#
+# History: 
+# 11/19/2015 DRC Created original script 
+#---------------------------------------------------------------
+
+# Create a Data Container
+docker run --name mqcc -v /mqcc centos
+
+#Run an interactive development Container 
+docker run -it -v /mqcc:/opt/mqcc -v $(pwd):/vm drcreager/dev /bin/bash /vm/Scripts/load-mqcc 
