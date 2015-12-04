@@ -1,0 +1,14 @@
+#!/bin/bash
+#---------------------------------------------------------------
+# Script:  simon 
+# Written: Nov 2015
+# Author:  Daniel R Creager
+# Desc:    Simulate a daemon by spinning on an infinite loop
+#
+# History: 
+# 11/19/2015 DRC Created original script 
+#---------------------------------------------------------------
+while true 
+do
+   sleep 1;
+done
