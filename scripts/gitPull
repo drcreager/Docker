@@ -1,0 +1,18 @@
+#!/bin/bash 
+#---------------------------------------------------------------
+# Script:  gitPull           
+# Written: Dec 2015
+# Author:  Daniel R Creager
+# Desc:    Retrieve a file from GITHUB             
+# Parms:   1 = Path and filename of file           
+#
+# History: 
+# 12/04/2015 DRC Created original script 
+#---------------------------------------------------------------
+repo=drcreager/Docker
+brnch=master
+host=https://raw.githubusercontent.com
+base=$(basename ${1})
+path=$(echo ${1} | sed s/${base}//g)
+
+curl -k -u "drcreager:<password>" ${host}/${repo}/${brnch}/${path}/${base} > ${base}
