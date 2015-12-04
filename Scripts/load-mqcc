@@ -1,0 +1,15 @@
+#!/bin/bash
+#---------------------------------------------------------------
+# Script:  docker-load-mqcc
+# Written: Nov 2015
+# Author:  Daniel R Creager
+# Desc:    Load the source for the MQ Common Code                   
+#
+# History: 
+# 11/19/2015 DRC Created original script 
+#---------------------------------------------------------------
+cd /opt/mqcc
+curl http://danielcreager.com/Common_Code_v2.zip > Common_Code_v2.zip
+unzip Common_code_v2.zip 
+rm –f Common_Code_v2.zip
+mv "Common Code v2 - Copy" src
