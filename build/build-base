@@ -1,0 +1,70 @@
+############################################################
+# Dockerfile to build a development container using: 
+# - CentOS
+# - Java v8
+# - Eclipse Mars 4.5
+############################################################
+
+# Set the base image to CentOS
+FROM centos
+
+# File Author / Maintainer
+MAINTAINER Daniel R Creager
+
+################## BEGIN INSTALLATION ######################
+# Update the repository sources list
+RUN yum -y install deltarpm
+RUN yum -y update 
+
+# Add the GNOME Desktop Environment to our Container
+RUN yum -y groupinstall "GNOME Desktop"
+RUN systemctl enable graphical.target --force
+
+#RUN yum -y groupinstall "Desktop" 
+#RUN yum -y groupinstall "Desktop Platform" 
+#RUN yum -y groupinstall "X Window System" 
+#RUN yum -y groupinstall "Fonts" 
+#RUN yum -y groupinstall "Graphical Administration Tools"
+#RUN yum -y groupinstall "Internet Browser"
+#RUN yum -y groupinstall "General Purpose Desktop"
+#RUN yum -y groupinstall "Office Suite and Productivity"
+#RUN yum -y groupinstall "Graphics Creation Tools"
+
+# Add Developer tools 
+# RUN yum -y groupinstall "Development Tools"
+# RUN yum -y install gtk+-devel gtk2-devel 
+ 
+
+# Install Java 8
+#RUN yum -y install java-1.8.0-openjdk.x86_64
+
+# Retrieve Eclipse Mars 4.5 for Java J2EE
+#RUN curl http://www.gtlib.gatech.edu/pub/eclipse/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz > /tmp/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz
+
+#COMMIT -p CONTAINER java_dev:v01b001
+
+# Expand the Eclipse archive
+#RUN tar -xvzf /tmp/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz -C /opt
+
+# Retrieve Eclipse Mars 4.5 for C++
+#RUN curl http://www.gtlib.gatech.edu/pub/eclipse/technology/epp/downloads/release/mars/1/eclipse-cpp-mars-1-linux-gtk-x86_64.tar.gz > /tmp/eclipse-cpp-mars-1-linux-gtk-x86_64.tar.gz
+
+# Expand the Eclipse archive
+#RUN tar -xvzf /tmp/eclipse-cpp-mars-1-linux-gtk-x86_64.tar.gz -C /opt
+
+# Set READ permissions through out the new /opt/eclipse directory
+#RUN chmod -R +r /opt/eclipse
+
+# Create the default data directory
+#RUN mkdir -p /data/db
+
+##################### INSTALLATION END #####################
+
+# Expose the default port
+#EXPOSE 27017
+
+# Default port to execute the entrypoint (MongoDB)
+#CMD ["--port 27017"]
+
+# Set default container command
+#ENTRYPOINT usr/bin/mongod
