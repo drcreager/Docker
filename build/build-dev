@@ -1,0 +1,15 @@
+############################################################
+# Set the base image to CentOS
+FROM centos
+
+# File Author / Maintainer
+MAINTAINER Daniel R Creager
+
+################## BEGIN INSTALLATION ######################
+# Update the repository sources list
+RUN yum -y install deltarpm
+RUN yum -y update
+
+# Add Developer tools 
+RUN yum -y groupinstall "Development Tools"
+RUN yum -y install       glibc-devel.i686 
