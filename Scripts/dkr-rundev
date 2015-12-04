@@ -1,0 +1,11 @@
+#!/bin/bash
+#---------------------------------------------------------------
+# Script:  docker-rundev
+# Written: Nov 2015
+# Author:  Daniel R Creager
+# Desc:    Run the development environment            
+#
+# History: 
+# 11/19/2015 DRC Created original script 
+#---------------------------------------------------------------
+docker run -it -v /mqcc:/opt/mqcc -v $(pwd):/vm drcreager/dev
