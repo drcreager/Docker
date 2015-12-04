@@ -1,0 +1,16 @@
+############################################################
+# Set the base image to CentOS
+FROM centos
+
+# File Author / Maintainer
+MAINTAINER Daniel R Creager
+
+################## BEGIN INSTALLATION ######################
+# Build a Data Only Container           
+VOLUME /mqcc
+CMD ["true"]
+
+################## Usage Sample ###########################
+# docker build - < build-data
+# docker run --name mqcc $data
+# job=$(docker run -it -volumes-from mqcc centos:latest bash)
