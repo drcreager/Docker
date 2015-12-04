@@ -1,0 +1,18 @@
+#!/bin/bash
+#---------------------------------------------------------------
+# Script:  docker-install
+# Written: Dec 2015
+# Author:  Daniel R Creager
+# Desc:    Install a docker-machine on Linux         
+#
+# History: 
+# 12/04/2015 DRC Created original script 
+#---------------------------------------------------------------
+# Install Docker 
+sudo yum install docker-engine
+
+#
+# Configure a Docker System Service 
+sudo chkconfig -add docker
+sudo chkconfig docker on
+sudo service docker start
